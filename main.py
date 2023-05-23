@@ -1,5 +1,21 @@
 
-produkte = {"Bier": 17.99, "Crack": 50, "Koks": 80}
+#produkte = {"Bier": 17.99, "Crack": 50, "Koks": 80, "Escort": 80, "Schere": 1.20, "Esel": 4000, "PC": 200, "Dr. Oetker Pizza": 5, "Apfel": 3, "Banane": 3}
+
+produkte = ["Bier", "Crack", "Koks", "Escorts", "Schere", "Esel", "PC", "Dr. Oetker Pizza", "Apfel", "Bannane"]
+Bier = [produkte[0], 17.99, ""]
+Crack = [produkte[1], 50]
+Koks = [produkte[2], 80]
+Escorts = [produkte[3], 80]
+Schere = [produkte[4], 1.20]
+Esel = [produkte[5], 4000]
+pc = [produkte[6], 200]
+Pizza = [produkte[7], 5]
+Apfel = [produkte[8], 3]
+Bannane = [produkte[9], 3] 
+
+produkteEAN = [Bier[2], Crack[2], Koks[2], ]
+
+
 
 warenkorb = []
 
@@ -10,12 +26,12 @@ def warenkorb_anzeigen():
     else:
         for produkt in warenkorb:
             print("-", produkt)
-    gesamtpreis = sum([produkte[produkt] for produkt in warenkorb])
+    gesamtpreis = sum([produkte[produkt] for produkt in warenkorb]) or sum([produkteEAN[produkt] for produkt in warenkorb])
     print("Gesamtpreis:", gesamtpreis)
 
 def produkt_hinzufuegen():
     produkt = input("Bitte geben Sie das Produkt ein, das Sie zum Warenkorb hinzufügen möchten: \n")
-    if produkt in produkte:
+    if produkt in produkte or produkt in produkteEAN:
         warenkorb.append(produkt)
         print(produkt, "wurde zum Warenkorb hinzugefügt.")
     else:
